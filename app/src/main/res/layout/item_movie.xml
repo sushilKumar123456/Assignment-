@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.cardview.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:id="@+id/recipe_parent"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        app:contentPaddingTop="12dp"
+        android:layout_margin="8dp" android:focusable="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <ImageView
+                android:id="@+id/recipe_thumb"
+                android:layout_width="@dimen/image_size"
+                android:layout_height="@dimen/image_size"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="@dimen/cardview_recipe_margin"
+        />
+
+        <com.assignment.movie.ui.custom.LabelCustomView
+                android:id="@+id/recipe_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:labelText="@string/has_lactose"
+                android:rotation="45"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintEnd_toStartOf="@+id/linearLayout" android:layout_marginTop="8dp"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+        <LinearLayout android:layout_width="0dp"
+                      android:layout_marginStart="12dp"
+                      app:layout_constraintEnd_toEndOf="parent"
+                      app:layout_constraintStart_toEndOf="@+id/recipe_thumb"
+                      app:layout_constraintTop_toTopOf="parent"
+                      android:orientation="vertical"
+                      android:paddingEnd="12dp"
+                      android:layout_height="wrap_content" android:id="@+id/linearLayout">
+            <TextView
+                    android:id="@+id/recipe_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="4dp"
+                    tools:text="Recipe title qe qe qe qwe qe q eq qwe qe qe qe"/>
+
+            <TextView
+                    android:id="@+id/recipe_ingredients"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/cardview_recipe_margin"
+                    android:layout_marginEnd="@dimen/cardview_recipe_margin"
+                    tools:text="Ingredients"/>
+
+            <Button
+                    android:id="@+id/recipe_button"
+                    android:layout_width="wrap_content"
+                    android:text="@string/add_to_favourites"
+                    android:textColor="@color/colorAccent"
+                    android:layout_gravity="end"
+                android:visibility="gone"
+                    android:layout_marginBottom="8dp"
+                    android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>
