@@ -55,42 +55,10 @@ class MovieFragment : BaseFragment(), RecipeAdapter.OnClickListener {
         setupListeners()
         observeViewModelData()
         observe()
-        val service = RetrofitFactory.makeRetrofitService()
-        CoroutineScope(Dispatchers.IO).launch {
-            val response = service.getPosts(apikey,plot,"egg")
-            withContext(Dispatchers.Main) {
-                try {
-                    if (response.isSuccessful) {
-                        Log.i("jhjhjhjhj",response.body().toString())
-                        //Do something with response e.g show to the UI.
-                    } else {
 
-                    }
-                } catch (e: HttpException) {
-                    ("Exception ${e.message}")
-                } catch (e: Throwable) {
-                    ("Ooops: Something else went wrong")
-                }
-            }
-        }
     }
-    interface RetrofitService {
-        @GET(".")
-        suspend fun getPosts(@Query("apikey") query: String,
-                             @Query("plot") type: String,
-                             @Query("t") s: String): Response<MovieDetails>
-    }
-    object RetrofitFactory {
-        const val BASE_URL ="http://www.omdbapi.com/"
 
 
-        fun makeRetrofitService(): RetrofitService {
-            return Retrofit.Builder()
-                .baseUrl(BASE_URL)
-                .addConverterFactory(MoshiConverterFactory.create())
-                .build().create(RetrofitService::class.java)
-        }
-    }
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.menu_search, menu)
         setupMenu(menu)
