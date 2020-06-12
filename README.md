@@ -1,18 +1,18 @@
-# RecipesBook
-This is a project using the latest architecture components and the Paging Library to retrieve some data from this [public api](http://www.recipepuppy.com/).
+# MOvieBook
+This is a project using the latest architecture components and the Paging Library to retrieve some data from this
 
 ## View
 It's based in a [Activity - Fragment] architecture, also on a RecyclerView and Adapter view based on the data that has to be shown.
-The Recipes Adapter implements PagedListAdapter to be able to handle the pagination.
+The Movie Adapter implements PagedListAdapter to be able to handle the pagination.
 
 ## ViewModel
-Recipe ViewModel handling the Repo and the DataSource to be able to obtain the data paginated.
-Favourites ViewModel handles only the repo, because the data is not being obtained in pagination, only from Persistence(Room)
+MovieViewModel handling the Repo and the DataSource to be able to obtain the data paginated.
+Movie ViewModel handles only the repo, because the data is not being obtained in pagination, only from Persistence(Room)
 
 ## Model
-The model is the one who is managing the repo and where the data is coming from. In the case of the Recipe search flow, the data is coming
+The model is the one who is managing the repo and where the data is coming from. In the case of the Movie search flow, the data is coming
 from the Network in a pagination mode. 
-The RecipeDataSource is the heart of the Pagination. The one listening for query changes and making query request to the repo api.
+The DataSource is the heart of the Pagination. The one listening for query changes and making query request to the repo api.
 Also listening for the pagination when scrolling the RecyclerView to get more data and managing the NetwrokState for UI purposes (RUNNING,SUCCESS,FAILED).
 
 ## Repository
